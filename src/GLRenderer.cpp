@@ -133,7 +133,7 @@ void name (int key, int action)
 */
 bool  GLRenderer::addKeyboardCallback(std::function<void(int, int)> function)
 {
-	cs557::AddKeyboardCallbackPtr(function);
+	// cs557::AddKeyboardCallbackPtr(function);
 
 	return true;
 }

@@ -1,7 +1,6 @@
 # Locate OpenCV
 # Rafael Radkowski
 
-
 set(VERSION "345")
 
 set(_OPENCV_DEFAULT_INSTALL_DIR 
@@ -10,8 +9,20 @@ set(_OPENCV_DEFAULT_INSTALL_DIR
 	"D:/SDK/opencv"
 	"D:/SDK/opencv/build"
 	"C:/SDK/opencv-3.4.5"
+    "/usr/local/share/OpenCV"
 )
-    
+
+# Use the default cmake file from OpenCV on Linux
+if (UNIX)
+    find_package(OpenCV REQUIRED PATHS ${_OPENCV_DEFAULT_INSTALL_DIR} NO_DEFAULT_PATH)
+    if (OPENCV_CORE_FOUND)
+        set(OPENCV_LIBRARIES ${OpenCV_LIBS})
+        set(OPENCV_INCLUDE_DIR ${OpenCV_INCLUDE_DIRS})
+    else ()
+        message("Could not locate OpenCV")
+    endif ()
+
+else (UNIX)
 
 find_path(OPENCV_ROOT 
 	NAMES /sources/include/opencv2/opencv.hpp
@@ -202,3 +213,5 @@ set(OPENCV_LIBRARIES
 	debug ${OPENCV_IMGCODECS_DEBUG}
  )
  
+endif (UNIX)
+

@@ -1,4 +1,6 @@
 #include "ImageWriter.h"
+#include <experimental/filesystem>
+#include <opencv2/opencv.hpp>
 
 //#define LOAD_TEST
 
@@ -18,7 +20,6 @@ ImageWriter::ImageWriter()
 	list_str.append(_logfile_name);
 	if (std::experimental::filesystem::exists(list_str))
 		std::experimental::filesystem::remove(list_str);
-
 	
 
 }

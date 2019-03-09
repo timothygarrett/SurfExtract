@@ -40,8 +40,18 @@ set(GLSupport
 )
 
 # Add libraries
+set(PROJECT_LIBRARIES 
+    ${PROJECT_NAME}  
+    ${GLEW_LIBRARIES} 
+    ${GLEW_LIBRARY} 
+    ${GLFW3_LIBRARY} 
+    ${OPENGL_LIBRARIES} 
+    ${OPENCV_LIBRARIES} 
+    GLUtils
+)
+
 if (UNIX) 
-    target_link_libraries(${PROJECT_NAME}   ${GLEW_LIBRARIES} ${GLEW_LIBRARY} ${GLFW3_LIBRARY} ${OPENGL_LIBRARIES} ${OpenCV_LIBS} GLUtils stdc++fs)
+    target_link_libraries(${PROJECT_LIBRARIES} stdc++fs)
 else ()
-    target_link_libraries(${PROJECT_NAME}   ${GLEW_LIBRARIES} ${GLEW_LIBRARY} ${GLFW3_LIBRARY} ${OPENGL_LIBRARIES} ${OpenCV_LIBS} GLUtils)
+    target_link_libraries(${PROJECT_LIBRARIES})
 endif ()

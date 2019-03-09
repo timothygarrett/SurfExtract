@@ -2,11 +2,15 @@
 
 #include <iostream>
 #include <fstream>
-#include <experimental\filesystem>
-#include <conio.h>
+#include <experimental/filesystem>
+#ifdef _WIN32
+	#include <conio.h>
+#else
+	#include <curses.h>
+#endif
 
 // Eigen 3
-#include <Eigen\Dense>
+#include <Eigen/Dense>
 
 using namespace std;
 using namespace Eigen;

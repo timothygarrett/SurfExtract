@@ -50,7 +50,7 @@ Jan 21, 2019:
 // local
 #include "MatrixFileUtils.h"
 #include "MatrixHelpers.h"
-#include "types.h"
+#include "Types.h"
 
 using namespace std;
 

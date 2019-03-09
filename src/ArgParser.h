@@ -7,7 +7,7 @@
 #include <vector>
 
 // local
-#include "types.h"
+#include "Types.h"
 
 using namespace std;
 

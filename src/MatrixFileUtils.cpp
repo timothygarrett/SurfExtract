@@ -1,5 +1,5 @@
 #include "MatrixFileUtils.h"
-
+#include <iostream>
 
 
 
@@ -15,7 +15,8 @@ Eigen::Matrix4f MatrixFileUtils::ReadMatrix4f(string path_and_file)
 
 	if (!std::experimental::filesystem::exists(path_and_file))
 	{
-		_cprintf("\n[MatrixFileUtils] - ERROR: file %s does not exist. Matrix is identity.\n", path_and_file.c_str());
+		std::cerr << "\n[MatrixFileUtils] - ERROR: file " << path_and_file.c_str() << 
+					" does not exist. Matrix is identity." << std::endl;
 		return matrix;
 	}
 
@@ -59,7 +60,8 @@ void MatrixFileUtils::WriteMatrix4f(string path_and_file, Matrix4f matrix, strin
 	ofstream of(path_and_file.c_str(), std::ofstream::out);
 
 	if (!of.is_open()) {
-		_cprintf("\n[MatrixFileUtils] - ERROR: file %s could not be written.\n", path_and_file.c_str());
+		std::cerr << "\n[MatrixFileUtils] - ERROR: file " << path_and_file.c_str() << 
+			" could not be written." << std::endl;
 		return;
 	}
 
@@ -91,7 +93,8 @@ Eigen::Matrix3f MatrixFileUtils::ReadMatrix3f(string path_and_file)
 
 	if (!std::experimental::filesystem::exists(path_and_file))
 	{
-		_cprintf("\n[MatrixFileUtils] - ERROR: file %s does not exist. Matrix is identity.\n", path_and_file.c_str());
+		std::cerr << "\n[MatrixFileUtils] - ERROR: file " << path_and_file.c_str() << 
+			" does not exist. Matrix is identity." << std::endl;
 		return matrix;
 	}
 
@@ -135,7 +138,8 @@ void MatrixFileUtils::WriteMatrix3f(string path_and_file, Matrix3f matrix, strin
 	ofstream of(path_and_file.c_str(), std::ofstream::out);
 
 	if (!of.is_open()) {
-		_cprintf("\n[MatrixFileUtils] - ERROR: file %s could not be written.\n", path_and_file.c_str());
+		std::cerr << "\n[MatrixFileUtils] - ERROR: file " << path_and_file.c_str() << 
+			" could not be written." << std::endl;
 		return;
 	}
 
@@ -165,7 +169,8 @@ Eigen::VectorXf MatrixFileUtils::ReadVectorXf(string path_and_file)
 
 	if (!std::experimental::filesystem::exists(path_and_file))
 	{
-		_cprintf("\n[MatrixFileUtils] - ERROR: file %s does not exist. Matrix is identity.\n", path_and_file.c_str());
+		std::cerr << "\n[MatrixFileUtils] - ERROR: file " << path_and_file.c_str() << 
+			" does not exist. Matrix is identity." << std::endl;
 		return matrix;
 	}
 
@@ -213,7 +218,8 @@ void MatrixFileUtils::WriteVectorXf(string path_and_file, VectorXf matrix, strin
 	int size = matrix.size();
 
 	if (!of.is_open()) {
-		_cprintf("\n[MatrixFileUtils] - ERROR: file %s could not be written.\n", path_and_file.c_str());
+		std::cerr << "\n[MatrixFileUtils] - ERROR: file " << path_and_file.c_str() << 
+			" could not be written." << std::endl;
 		return;
 	}
 
