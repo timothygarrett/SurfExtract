@@ -4,6 +4,8 @@ cmake_minimum_required(VERSION 2.6)
 # policy for relative subfolders
 cmake_policy(SET CMP0015 NEW)
 
+# Add the dependencies
+add_subdirectory(dep)
 
 # Main project name
 project(SurfExtract)
