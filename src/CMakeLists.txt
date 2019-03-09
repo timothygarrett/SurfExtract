@@ -15,7 +15,11 @@ source_group(src FILES ${GLUtils_SRC})
 
 add_compile_definitions(_WITH_CAMERA)
 add_compile_definitions(GLM_ENABLE_EXPERIMENTAL)
-set(CMAKE_CXX_STANDARD 14)
+if (UNIX)
+    set(CMAKE_CXX_STANDARD 17)
+else ()
+    set(CMAKE_CXX_STANDARD 14)
+endif ()
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
@@ -35,10 +39,9 @@ set(GLSupport
 	optimized GLUtils.lib
 )
 
-
-
-
 # Add libraries
-target_link_libraries(${PROJECT_NAME}   ${GLEW_LIBRARIES} ${GLEW_LIBRARY} ${GLFW3_LIBRARY} ${OPENGL_LIBRARIES}  ${OPENCV_LIBRARIES}  ${GLSupport} )
-
-
+if (UNIX) 
+    target_link_libraries(${PROJECT_NAME}   ${GLEW_LIBRARIES} ${GLEW_LIBRARY} ${GLFW3_LIBRARY} ${OPENGL_LIBRARIES} ${OpenCV_LIBS} GLUtils stdc++fs)
+else ()
+    target_link_libraries(${PROJECT_NAME}   ${GLEW_LIBRARIES} ${GLEW_LIBRARY} ${GLFW3_LIBRARY} ${OPENGL_LIBRARIES} ${OpenCV_LIBS} GLUtils)
+endif ()

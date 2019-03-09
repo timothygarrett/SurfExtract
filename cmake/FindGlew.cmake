@@ -23,6 +23,7 @@ set( _glew_HEADER_SEARCH_DIRS
   
  set( _glew_LIB_SEARCH_DIRS
   "/usr/lib"
+  "/usr/lib/x86_64-linux-gnu"
   "/usr/local/lib"
   "C:/Program Files (x86)/glfw/lib-msvc110" 
   "../../SDK/lib"
@@ -48,9 +49,9 @@ FIND_PATH(GLEW_INCLUDE_DIR "GL/glew.h"
 	PATHS ${_glew_HEADER_SEARCH_DIRS} )
 	
 # Search for the library
-FIND_LIBRARY(GLEW_LIBRARY NAMES  glew libglew glew32 libglew32
+FIND_LIBRARY(GLEW_LIBRARY NAMES  glew libglew glew32 libglew32 GLEW libGLEW
   PATHS ${_glew_LIB_SEARCH_DIRS} )
 
 INCLUDE(FindPackageHandleStandardArgs)
 FIND_PACKAGE_HANDLE_STANDARD_ARGS(GLEW DEFAULT_MSG
-	GLFW3_LIBRARY GLEW_INCLUDE_DIR)
+	GLEW_LIBRARY GLEW_INCLUDE_DIR)
