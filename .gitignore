@@ -15,3 +15,4 @@ dep/
 src/output/
 src/SurfExtract.dir/
 x64/
+build/
